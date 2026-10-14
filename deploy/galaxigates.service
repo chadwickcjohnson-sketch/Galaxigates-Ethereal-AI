@@ -1,0 +1,16 @@
+[Unit]
+Description=Galaxigates Real-Time Enterprise Gateway
+After=network.target
+
+[Service]
+# It is more secure to run this as a dedicated non-root user. Create the user and adjust paths accordingly.
+User=root
+WorkingDirectory=/opt/galaxigates
+ExecStart=/usr/bin/python3 /opt/galaxigates/galaxigates_gateway.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
